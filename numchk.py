@@ -1,24 +1,24 @@
 import os.path
 
-num_tsts = 10
+num_tsts = int(input("Number of answers to check: "))
 
 for i in range(num_tsts):
     # Stats
     right, wrong = 0, 0
 
     fnum = str(i).zfill(3)
-    f1n = 'q_{}.txt'.format(fnum) # Generated numbers
-    f2n = 'a_{}.txt'.format(fnum) # Subject answers
+    fname1 = 'q_{}.txt'.format(fnum) # Generated numbers
+    fname2 = 'a_{}.txt'.format(fnum) # Subject answers
 
-    if not os.path.isfile(f1n):
-        print('Missing file {}'.format(f1n))
+    if not os.path.isfile(fname1):
+        print('Missing file: {}'.format(fname1))
         continue
-    elif not os.path.isfile(f2n):
+    elif not os.path.isfile(fname2):
         # End of inputs
         break
 
-    with open(f1n, 'r') as f1:
-        with open(f2n, 'r') as f2:
+    with open(fname1, 'r') as f1:
+        with open(fname2, 'r') as f2:
             tot = 0
 
             for line in f2:
